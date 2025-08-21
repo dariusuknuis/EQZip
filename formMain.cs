@@ -455,6 +455,22 @@ namespace EQ_Zip
             Status_Changed();
 
             UpdateMRUs();
+
+            float scale = this.DeviceDpi / 96f;
+
+            listView1.Font = new Font("Segoe UI", 9f * scale, FontStyle.Regular);
+
+            if (listView1.SmallImageList != null)
+            {
+                int smallSize = (int)(64 * scale);
+                listView1.SmallImageList.ImageSize = new Size(smallSize, smallSize);
+            }
+
+            if (listView1.LargeImageList != null)
+            {
+                int largeSize = (int)(256 * scale);
+                listView1.LargeImageList.ImageSize = new Size(largeSize, largeSize);
+            }
         }
 
         private void importFileToolStripMenuItem_Click(object sender, EventArgs e)
@@ -1052,21 +1068,43 @@ namespace EQ_Zip
         
         private void CancelThumbnailThread()
         {
-			ListViewQueue.Clear();
+            ListViewQueue.Clear();
 
-			if (threadListView.IsBusy)
+            // cancel list view worker
+            if (threadListView.IsBusy)
             {
                 threadListView.CancelAsync();
-
                 while (threadListView.IsBusy)
                 {
                     Application.DoEvents();
-
                     Thread.Sleep(1);
                 }
             }
+
+            // also cancel the thumbnail/decompress pipeline
+            if (threadThumbnails.IsBusy)
+            {
+                threadThumbnails.CancelAsync();
+                while (threadThumbnails.IsBusy)
+                {
+                    Application.DoEvents();
+                    Thread.Sleep(1);
+                }
+            }
+            if (threadDecompress.IsBusy)
+            {
+                threadDecompress.CancelAsync();
+                while (threadDecompress.IsBusy)
+                {
+                    Application.DoEvents();
+                    Thread.Sleep(1);
+                }
+            }
+
+            ThumbnailQueue.Clear();
+            DecompressQueue.Clear();
         }
-        
+
         public void CheckClipboard()
         {
             pasteToolStripMenuItem.Enabled = Clipboard.ContainsFileDropList() | Clipboard.ContainsData("FileContents");
@@ -1725,7 +1763,15 @@ namespace EQ_Zip
 
 					ViewMode_Restore();
 
-					threadListView.RunWorkerAsync();
+					// Only start if not already running (or cancel first if it is)
+                    if (threadListView.IsBusy)
+                    {
+                        CancelThumbnailThread();   // waits until threadListView stops
+                    }
+                    if (!threadListView.IsBusy)
+                    {
+                        threadListView.RunWorkerAsync();
+                    }
 				}
 			}
 
@@ -1883,10 +1929,10 @@ namespace EQ_Zip
             string[] args = Environment.GetCommandLineArgs();
             if (args.Length > 1)
             {
+                CancelThumbnailThread();   // ensure a clean slate
                 LoadArchive(args[1]);
             }
-            
-           // LoadArchive("D:\\tmp\\soldungb\\soldungb.eqg");
+            // LoadArchive("D:\\tmp\\soldungb\\soldungb.eqg");
         }
     }
 }

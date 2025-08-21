@@ -589,7 +589,7 @@
             // 
             // toolStrip1
             // 
-            this.toolStrip1.ImageScalingSize = new System.Drawing.Size(32, 32);
+            this.toolStrip1.ImageScalingSize = new System.Drawing.Size(64, 64);
             this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.newToolStripButton,
             this.openToolStripButton,
@@ -627,7 +627,7 @@
             // 
             this.newToolStripButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
             this.newToolStripButton.Image = ((System.Drawing.Image)(resources.GetObject("newToolStripButton.Image")));
-            this.newToolStripButton.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.newToolStripButton.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.SizeToFit;
             this.newToolStripButton.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.newToolStripButton.Name = "newToolStripButton";
             this.newToolStripButton.Size = new System.Drawing.Size(36, 36);
@@ -638,7 +638,7 @@
             // 
             this.openToolStripButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
             this.openToolStripButton.Image = ((System.Drawing.Image)(resources.GetObject("openToolStripButton.Image")));
-            this.openToolStripButton.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.openToolStripButton.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.SizeToFit;
             this.openToolStripButton.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.openToolStripButton.Name = "openToolStripButton";
             this.openToolStripButton.Size = new System.Drawing.Size(36, 36);
@@ -649,7 +649,7 @@
             // 
             this.saveToolStripButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
             this.saveToolStripButton.Image = ((System.Drawing.Image)(resources.GetObject("saveToolStripButton.Image")));
-            this.saveToolStripButton.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.saveToolStripButton.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.SizeToFit;
             this.saveToolStripButton.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.saveToolStripButton.Name = "saveToolStripButton";
             this.saveToolStripButton.Size = new System.Drawing.Size(36, 36);
@@ -660,7 +660,7 @@
             // 
             this.saveAsToolStripButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
             this.saveAsToolStripButton.Image = ((System.Drawing.Image)(resources.GetObject("saveAsToolStripButton.Image")));
-            this.saveAsToolStripButton.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.saveAsToolStripButton.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.SizeToFit;
             this.saveAsToolStripButton.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.saveAsToolStripButton.Name = "saveAsToolStripButton";
             this.saveAsToolStripButton.Size = new System.Drawing.Size(36, 36);
@@ -676,7 +676,7 @@
             // 
             this.importFileToolStripButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
             this.importFileToolStripButton.Image = ((System.Drawing.Image)(resources.GetObject("importFileToolStripButton.Image")));
-            this.importFileToolStripButton.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.importFileToolStripButton.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.SizeToFit;
             this.importFileToolStripButton.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.importFileToolStripButton.Name = "importFileToolStripButton";
             this.importFileToolStripButton.Size = new System.Drawing.Size(36, 36);
@@ -687,7 +687,7 @@
             // 
             this.exportFileToolStripButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
             this.exportFileToolStripButton.Image = ((System.Drawing.Image)(resources.GetObject("exportFileToolStripButton.Image")));
-            this.exportFileToolStripButton.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.exportFileToolStripButton.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.SizeToFit;
             this.exportFileToolStripButton.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.exportFileToolStripButton.Name = "exportFileToolStripButton";
             this.exportFileToolStripButton.Size = new System.Drawing.Size(36, 36);
@@ -698,7 +698,7 @@
             // 
             this.exportAllToolStripButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
             this.exportAllToolStripButton.Image = ((System.Drawing.Image)(resources.GetObject("exportAllToolStripButton.Image")));
-            this.exportAllToolStripButton.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.exportAllToolStripButton.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.SizeToFit;
             this.exportAllToolStripButton.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.exportAllToolStripButton.Name = "exportAllToolStripButton";
             this.exportAllToolStripButton.Size = new System.Drawing.Size(36, 36);
@@ -740,7 +740,7 @@
             // 
             this.cutToolStripButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
             this.cutToolStripButton.Image = ((System.Drawing.Image)(resources.GetObject("cutToolStripButton.Image")));
-            this.cutToolStripButton.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.cutToolStripButton.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.SizeToFit;
             this.cutToolStripButton.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.cutToolStripButton.Name = "cutToolStripButton";
             this.cutToolStripButton.Size = new System.Drawing.Size(36, 36);
@@ -751,7 +751,7 @@
             // 
             this.copyToolStripButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
             this.copyToolStripButton.Image = ((System.Drawing.Image)(resources.GetObject("copyToolStripButton.Image")));
-            this.copyToolStripButton.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.copyToolStripButton.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.SizeToFit;
             this.copyToolStripButton.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.copyToolStripButton.Name = "copyToolStripButton";
             this.copyToolStripButton.Size = new System.Drawing.Size(36, 36);
@@ -762,7 +762,7 @@
             // 
             this.pasteToolStripButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
             this.pasteToolStripButton.Image = ((System.Drawing.Image)(resources.GetObject("pasteToolStripButton.Image")));
-            this.pasteToolStripButton.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.pasteToolStripButton.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.SizeToFit;
             this.pasteToolStripButton.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.pasteToolStripButton.Name = "pasteToolStripButton";
             this.pasteToolStripButton.Size = new System.Drawing.Size(36, 36);
@@ -773,7 +773,7 @@
             // 
             this.deleteToolStripButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
             this.deleteToolStripButton.Image = ((System.Drawing.Image)(resources.GetObject("deleteToolStripButton.Image")));
-            this.deleteToolStripButton.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.deleteToolStripButton.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.SizeToFit;
             this.deleteToolStripButton.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.deleteToolStripButton.Name = "deleteToolStripButton";
             this.deleteToolStripButton.Size = new System.Drawing.Size(36, 36);
@@ -784,7 +784,7 @@
             // 
             this.renameToolStripButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
             this.renameToolStripButton.Image = ((System.Drawing.Image)(resources.GetObject("renameToolStripButton.Image")));
-            this.renameToolStripButton.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.renameToolStripButton.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.SizeToFit;
             this.renameToolStripButton.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.renameToolStripButton.Name = "renameToolStripButton";
             this.renameToolStripButton.Size = new System.Drawing.Size(36, 36);
@@ -810,7 +810,7 @@
             // 
             this.selectAllToolStripButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
             this.selectAllToolStripButton.Image = ((System.Drawing.Image)(resources.GetObject("selectAllToolStripButton.Image")));
-            this.selectAllToolStripButton.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.selectAllToolStripButton.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.SizeToFit;
             this.selectAllToolStripButton.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.selectAllToolStripButton.Name = "selectAllToolStripButton";
             this.selectAllToolStripButton.Size = new System.Drawing.Size(36, 36);
@@ -821,7 +821,7 @@
             // 
             this.selectNoneToolStripButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
             this.selectNoneToolStripButton.Image = ((System.Drawing.Image)(resources.GetObject("selectNoneToolStripButton.Image")));
-            this.selectNoneToolStripButton.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.selectNoneToolStripButton.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.SizeToFit;
             this.selectNoneToolStripButton.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.selectNoneToolStripButton.Name = "selectNoneToolStripButton";
             this.selectNoneToolStripButton.Size = new System.Drawing.Size(36, 36);
@@ -832,7 +832,7 @@
             // 
             this.invertSelectionToolStripButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
             this.invertSelectionToolStripButton.Image = ((System.Drawing.Image)(resources.GetObject("invertSelectionToolStripButton.Image")));
-            this.invertSelectionToolStripButton.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.invertSelectionToolStripButton.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.SizeToFit;
             this.invertSelectionToolStripButton.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.invertSelectionToolStripButton.Name = "invertSelectionToolStripButton";
             this.invertSelectionToolStripButton.Size = new System.Drawing.Size(36, 36);
@@ -848,7 +848,7 @@
             // 
             this.preferencesToolStripButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
             this.preferencesToolStripButton.Image = ((System.Drawing.Image)(resources.GetObject("preferencesToolStripButton.Image")));
-            this.preferencesToolStripButton.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.preferencesToolStripButton.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.SizeToFit;
             this.preferencesToolStripButton.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.preferencesToolStripButton.Name = "preferencesToolStripButton";
             this.preferencesToolStripButton.Size = new System.Drawing.Size(36, 36);
@@ -864,7 +864,7 @@
             this.tilesViewToolStripButton,
             this.galleryViewToolStripButton});
             this.viewToolStripSplitButton.Image = ((System.Drawing.Image)(resources.GetObject("viewToolStripSplitButton.Image")));
-            this.viewToolStripSplitButton.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.viewToolStripSplitButton.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.SizeToFit;
             this.viewToolStripSplitButton.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.viewToolStripSplitButton.Name = "viewToolStripSplitButton";
             this.viewToolStripSplitButton.Size = new System.Drawing.Size(48, 36);
@@ -916,7 +916,7 @@
             // 
             this.aboutToolStripButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
             this.aboutToolStripButton.Image = ((System.Drawing.Image)(resources.GetObject("aboutToolStripButton.Image")));
-            this.aboutToolStripButton.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.aboutToolStripButton.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.SizeToFit;
             this.aboutToolStripButton.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.aboutToolStripButton.Name = "aboutToolStripButton";
             this.aboutToolStripButton.Size = new System.Drawing.Size(36, 36);
