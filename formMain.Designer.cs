@@ -1000,8 +1000,8 @@
             // dialogOpenArchive
             // 
             this.dialogOpenArchive.AddExtension = false;
-            this.dialogOpenArchive.Filter = "All Supported Archives|*.s3d;*.eqg;*.pak;*.pfs|S3D Archives|*.s3d|EQG Archives|*." +
-    "eqg|Sound Packs|*.pfs|Image Packs|*.pak";
+            this.dialogOpenArchive.Filter = "All Supported Archives|*.s3d;*.eqg;*.pak;*.pfs;*.t3d|S3D Archives|*.s3d|EQG Archives|*." +
+    "eqg|Sound Packs|*.pfs|Image Packs|*.pak|T3D Archives|*.t3d";
             // 
             // threadThumbnails
             // 
@@ -1012,7 +1012,7 @@
             // 
             this.dialogSaveArchive.AddExtension = false;
             this.dialogSaveArchive.DefaultExt = "eqg";
-            this.dialogSaveArchive.Filter = "EQ Archive|*.s3d;*.eqg;*.pak;*.pfs";
+            this.dialogSaveArchive.Filter = "EQ Archive|*.s3d;*.eqg;*.pak;*.pfs|T3D Archive|*.t3d";
             // 
             // dialogImportFiles
             // 

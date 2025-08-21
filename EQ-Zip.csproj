@@ -13,6 +13,7 @@
     <FileAlignment>512</FileAlignment>
     <IsWebBootstrapper>false</IsWebBootstrapper>
     <TargetFrameworkProfile />
+    <ApplicationManifest>app.manifest</ApplicationManifest>
     <PublishUrl>publish\</PublishUrl>
     <Install>true</Install>
     <InstallFrom>Disk</InstallFrom>
@@ -65,7 +66,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DDSImage.cs" />
+    <Compile Include="Archive.Abstractions.cs" />
     <Compile Include="EQArchive.cs" />
+    <Compile Include="T3DArchive.cs" />
+    <Compile Include="ArchiveLoader.cs" />
     <Compile Include="formAbout.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -157,6 +161,12 @@
       <Visible>False</Visible>
       <Description>EverQuest Archive</Description>
       <Progid>s3dfile</Progid>
+      <DefaultIcon>EQ-Zip.ico</DefaultIcon>
+    </FileAssociation>
+    <FileAssociation Include=".t3d">
+      <Visible>False</Visible>
+      <Description>Tanarus Archive</Description>
+      <Progid>t3dfile</Progid>
       <DefaultIcon>EQ-Zip.ico</DefaultIcon>
     </FileAssociation>
   </ItemGroup>

@@ -17,6 +17,8 @@ namespace EQ_Zip
         public formReplaceDialog()
         {
             InitializeComponent();
+            this.AutoScaleDimensions = new SizeF(96F, 96F);
+            this.AutoScaleMode = AutoScaleMode.Dpi;
 
             this.DialogResult = DialogResult.Cancel;
         }

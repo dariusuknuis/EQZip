@@ -65,7 +65,7 @@ namespace EQ_Zip
         
         public string VersionNumber = "";
 
-        public EQArchive LastArchive = null;
+        public IArchive LastArchive = null;
 
         public List<int> ThumbnailQueue = new List<int>();
         public Mutex ThumbnailMutex = new Mutex(false);
@@ -79,7 +79,7 @@ namespace EQ_Zip
 
         public ListViewItem[] ItemsCutToClipboard;
 
-        public EQArchive CurrentArchive;
+        public IArchive CurrentArchive;
         public bool ArchiveChanged = false;
 		public bool ArchiveLoading = false;
 		public EQArchiveFile NewFile = null;
@@ -91,6 +91,8 @@ namespace EQ_Zip
         public formMain()
         {
             InitializeComponent();
+            this.AutoScaleDimensions = new SizeF(96F, 96F);
+            this.AutoScaleMode = AutoScaleMode.Dpi;
 
             // Example: 13.1.0.0 -> 13.1
             VersionNumber = Application.ProductVersion.Substring(0, Application.ProductVersion.IndexOf('.') + 1);
@@ -1020,7 +1022,7 @@ namespace EQ_Zip
 
         #region 2. Custom Methods
 
-        private void AddToMRUs(EQArchive OldArchive)
+        private void AddToMRUs(IArchive OldArchive)
         {
             if ((Settings.RememberMRUs > 0) && (OldArchive != null) && (OldArchive.Filename != "(Untitled)") && (OldArchive.FilePath != ""))
             {
@@ -1305,6 +1307,15 @@ namespace EQ_Zip
 
             return ImportFile(_newFile);
         }
+
+        private IArchive CreateDefaultArchive()
+        {
+            // Preserve old behavior: new EQArchive by default
+            return new EQArchive();
+            // Later, if you add a “New T3D Archive” command, you could return:
+            // return new T3DArchive();
+        }
+
         private bool ImportFile(string Filename) { return ImportFile(new EQArchiveFile(Filename, Util.GetFileContents(Filename))); }
         private bool ImportFile(string Filename, byte[] Contents) { return ImportFile(new EQArchiveFile(Filename, Contents)); }
         private bool ImportFile(EQArchiveFile File) { return ImportFile(File, false); }
@@ -1312,7 +1323,7 @@ namespace EQ_Zip
         {
             if (CurrentArchive == null)
             {
-                CurrentArchive = new EQArchive();
+                CurrentArchive = CreateDefaultArchive();
             }
 
             EQArchiveFile _existing;
@@ -1360,7 +1371,7 @@ namespace EQ_Zip
                 File = File.AsFormat(Settings.ImportFormat, (_existing == null));
             }
 
-            bool _ok = (CurrentArchive.Add(File) == Result.OK);
+            bool _ok = (CurrentArchive.Add(File, false) == Result.OK);
 
 			NewFile = File;
 			Status_Changed(true);
@@ -1373,13 +1384,12 @@ namespace EQ_Zip
             if (!ConfirmDiscard())
             {
                 // User canceled the change in archive
-                
                 return;
             }
 
             CancelThumbnailThread();
 
-            EQArchive _newArchive;
+            IArchive _newArchive;
 
             if (FilePath == null)
             {
@@ -1388,23 +1398,32 @@ namespace EQ_Zip
             else if (FilePath == "")
             {
                 // Requesting a new empty archive
-
-                _newArchive = new EQArchive();
+                _newArchive = CreateDefaultArchive();
             }
             else
             {
-                _newArchive = EQArchive.Load(FilePath);
+                // unified loader
+                _newArchive = ArchiveLoader.Load(FilePath);
+
+                if (_newArchive == null)
+                {
+                    MessageBox.Show(this,
+                        "The specified file could not be opened as an archive:\r\n\r\n" + FilePath,
+                        "Problem Opening Archive",
+                        MessageBoxButtons.OK,
+                        MessageBoxIcon.Error);
+                    return;
+                }
 
                 switch (_newArchive.Status)
                 {
                     case Result.OK:
-                        // Hey, look at that. Nothing bad happened. Awesome. Let's use it.
                         break;
                     case Result.WrongFileType:
-                        MessageBox.Show(this, "The specified file was not recognized as a supported EQ Archive type:\r\n\r\n" + FilePath, "Problem Opening Archive", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        MessageBox.Show(this, "The specified file was not recognized as a supported archive type:\r\n\r\n" + FilePath, "Problem Opening Archive", MessageBoxButtons.OK, MessageBoxIcon.Error);
                         return;
                     case Result.MalformedFile:
-                        MessageBox.Show(this, "The specified file was recognized as an EQ archive, but contained invalid data:\r\n\r\n" + FilePath, "Problem Opening Archive", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        MessageBox.Show(this, "The specified file was recognized as an archive, but contained invalid data:\r\n\r\n" + FilePath, "Problem Opening Archive", MessageBoxButtons.OK, MessageBoxIcon.Error);
                         return;
                     case Result.FileTooLarge:
                         MessageBox.Show(this, "The specified file is larger than the 4GB limit supported (WTF?!):\r\n\r\n" + FilePath, "Problem Opening Archive", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -1425,7 +1444,7 @@ namespace EQ_Zip
             }
 
             AddToMRUs(CurrentArchive);
-            
+
             CurrentArchive = _newArchive;
             ArchiveChanged = true;
 

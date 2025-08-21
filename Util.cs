@@ -59,7 +59,7 @@ namespace EQ_Zip
     public class Util
     {
         public static List<string> ImageFiles = new List<string> { ".dds", ".bmp", ".png", ".jpeg", ".jpg", ".gif", ".tga", ".tiff", ".tif" };
-        public static List<string> ArchiveFiles = new List<string>() { ".s3d", ".eqg", ".pfs", ".pak" };
+        public static List<string> ArchiveFiles = new List<string>() { ".s3d", ".eqg", ".pfs", ".pak", ".t3d" };
 
         public static bool IsArchive(string Filename)
         {

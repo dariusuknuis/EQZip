@@ -42,7 +42,7 @@ using DDS;
 
 namespace EQ_Zip
 {
-    public class EQArchive
+    public class EQArchive : IArchive
     {
         static EQArchive()
         {
@@ -255,15 +255,14 @@ namespace EQ_Zip
 
         #region Public Properties
 
-        public string FilePath = "";
+        public string FilePath { get; set; } = "";
         
-        public SortedList<string, EQArchiveFile> Files = new SortedList<string, EQArchiveFile>();
+        public SortedList<string, EQArchiveFile> Files { get; set; } = new SortedList<string, EQArchiveFile>();
+        public bool IsDirty { get; set; } = false;
         
-        public bool IsDirty = false;
+        public uint SizeOnDisk { get; set; } = 0;
         
-        public UInt32 SizeOnDisk = 0;
-        
-        public Result Status = Result.NotImplemented;
+        public Result Status { get; set; } = Result.NotImplemented;
 
         public string Filename
         {
